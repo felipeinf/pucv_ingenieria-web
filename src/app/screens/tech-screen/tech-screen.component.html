@@ -1,0 +1,47 @@
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-lg-2 col-4 text-center border shadow-sm">
+      <div class="row">
+        <div class="col bg-light">
+          <h5 class="text-muted text-center mb-1 mt-2 py-2">Marcas</h5>
+        </div>
+      </div>
+      <div class="row border-top">
+        <div class="col px-0">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item pointer"
+              *ngFor="let brand of brands"
+              (click)="selectBrand(brand)"
+              [ngClass]="{active: brand === selectedBrand}"
+            >
+              {{brand}}
+            </li>
+            <li class="list-group-item pointer"
+              (click)="filterProducts = products;
+                selectedBrand = null;
+              "
+              [ngClass]="{active: filterProducts == products}"
+            >
+              Todas 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!--col-3-->
+
+    <div class="col-lg-10 col-8 mt-3 text-center" style="overflow-y: scroll; max-height: 600px;">
+      <input [formControl]="search" class="form-control mr-sm-2" type="text" placeholder="🔍️  Buscar">
+    
+      <div class="row">
+        <div class="col-lg-3 col-12"
+          *ngFor="let product of filterProducts"
+        >
+          <app-product-card
+            [product]="product"
+          ></app-product-card>
+        </div><!--col-3-->
+
+      </div>
+    </div><!--col-9-->
+  </div><!--row-->
+</div>
