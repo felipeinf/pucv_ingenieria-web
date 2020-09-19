@@ -1,0 +1,47 @@
+<div class="card my-2">
+  <img src="{{product.imgUrl}}" class="card-img-top" alt="...">
+  <div class="card-body">
+
+    <div class="row">
+      <div class="col-12 text-left">
+        <p class="text-muted mb-1">{{product.brand}}</p>
+      </div><!--col-12-->
+
+      <div class="col-12 text-justify">
+        <h5 class="text-dark">{{product.name}}</h5>
+        <p class="text-dark mb-1">Por {{product.seller}}</p>
+
+        <div [ngSwitch]="product.color">
+          <div *ngSwitchCase="'red'">
+            <i class="fas fa-circle mb-1" style="color: red"></i>
+          </div>
+          <div *ngSwitchCase="'black'">
+            <i class="fas fa-circle mb-1" style="color: black"></i>
+          </div>
+          <div *ngSwitchCase="'green'">
+            <i class="fas fa-circle mb-1" style="color: green"></i>
+          </div>
+          <div *ngSwitchCase="'gold'">
+            <i class="fas fa-circle mb-1" style="color: goldenrod"></i>
+          </div>
+          <div *ngSwitchDefault> 
+            <i class="fas fa-circle mb-1" style="color: gray"></i>
+          </div>
+        </div>
+
+        <p class="text-dark">${{product.price | currency: 'CLP'}}</p>
+
+      </div><!--col-12-->
+
+      <div class="col-12 text-center"
+        *ngIf="getUrl().includes('producto') == false"
+      >
+        <button type="button" class="btn btn-success"
+          [routerLink]="['/producto', product._id]"
+        >Ver producto</button>
+      </div><!--col-12-->
+    </div>
+
+    
+  </div><!--card-body-->
+</div><!--card-->
