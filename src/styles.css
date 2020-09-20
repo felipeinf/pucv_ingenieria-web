@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-.pointer{
+.pointer {
   cursor: pointer;
+}
+
+.text-brand {
+  color: #acd200!important;
+}
+
+/* Bootstrap Overrides*/
+.active {
+  background-color: #acd200!important;
+  border-color: #acd200!important;
+}
+
+.container-fluid{
+  margin-top: 7rem!important;
 }
